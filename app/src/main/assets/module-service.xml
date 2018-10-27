@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+
+    <module-service>
+        <stub-class>com.example.shell.moduleservice.stub.ToastServiceStub</stub-class>
+        <target-class>com.example.keketian.moduleservicedemo.moduleservice.ToastService</target-class>
+    </module-service>
+
+    <module-service>
+        <stub-class>com.example.shell.moduleservice.stub.LoginServiceStub</stub-class>
+        <target-class>com.example.biz_login.moduleservice.LoginService</target-class>
+    </module-service>
+
+</root>
