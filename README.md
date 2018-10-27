@@ -7,7 +7,7 @@
 
 ### 模块关系
 demo项目的模块：App、biz-login、biz-usercenter、shell。其中shell模块是公共模块，他们的依赖关系是App依赖biz-login、biz-usercenter、biz-shell，
-biz-login依赖shell、biz-usercenter依赖shell。其实shell就是一个公共模块。biz-login和biz-usercenter没有依赖关系。
+biz-login依赖shell，biz-usercenter依赖shell。其实shell就是一个公共模块。biz-login和biz-usercenter没有依赖关系。
 ### 使用
  * 比如说biz-Login模块想要提供一个login的服务, 按照如下步骤即可：
   1. 在shell中写一个接口
