@@ -1,4 +1,4 @@
-# ModuleServiceDemo
+# ModuleService
 模块间解耦库，解决module之间的依赖问题
 
 ### 问题背景
