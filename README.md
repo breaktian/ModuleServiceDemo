@@ -133,4 +133,5 @@ public class DemoApplication extends Application {
     }
 }
 ```
+### 总结
 当然，任何模块都可以提供服务，而且任何模块都能使用协议中已经存在的服务。这样之前繁杂冗余的业务模块之间的依赖就没有了，还可以提高编译的速度。
