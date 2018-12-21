@@ -82,7 +82,13 @@ public class ModuleServicer {
         }
 
         //目标类的全路径
-        String targetClazzName = mProtocols.get(stub.getName());
+        String targetClazzName;
+        if(stub.isAnnotationPresent(ServiceTarget.class)){
+            ServiceTarget serviceTarget = (ServiceTarget) stub.getAnnotation(ServiceTarget.class);
+            targetClazzName = serviceTarget.value();
+        }else{
+            targetClazzName = mProtocols.get(stub.getName());
+        }
         if (targetClazzName == null
                 || targetClazzName.equals("")
                 || targetClazzName.equals("null")) {
