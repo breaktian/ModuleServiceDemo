@@ -10,8 +10,9 @@ demo项目的模块：App、biz-login、biz-usercenter、shell。其中shell模�
 biz-login依赖shell，biz-usercenter依赖shell。其实shell就是一个公共模块。biz-login和biz-usercenter没有依赖关系。
 ### 使用
  * 比如说biz-Login模块想要提供一个login的服务, 按照如下步骤即可：
-  1. 在shell中写一个接口
+  1. 在shell中写一个接口，并且把实现类用注解的形式标注一下
   ```
+  @ServiceTarget(value = "com.example.biz_login.moduleservice.LoginService")
   public interface LoginServiceStub {
 
     void login(String name, String password, LoginCallback callback);
@@ -60,7 +61,7 @@ public class LoginService implements LoginServiceStub {
 }
 
 ```
-4. 在app的assets目录下新建一个module-service.xml,并且把这个服务注册进去
+4. 在app的assets目录下新建一个module-service.xml,并且把这个服务注册进去，注：如果写了注解则可以省略此步骤，ModuleServicer内部会判断有没有写注解，如果有注解就使用注解，没有才会查找协议表
 ```
 <?xml version="1.0" encoding="utf-8" ?>
 <root>
@@ -119,7 +120,7 @@ public class UserCenterActivity extends AppCompatActivity {
     }
 }
 ```
-6. 最后，别忘了在app的application加载协议表（这个是应该在第5步之前就应该做的）
+6. 最后，别忘了在app的application加载协议表（这个是应该在第5步之前就应该做的），注：使用注解的方式则可以省略此步骤
 ```
 public class DemoApplication extends Application {
     @Override
@@ -134,4 +135,4 @@ public class DemoApplication extends Application {
 }
 ```
 ### 总结
-当然，任何模块都可以提供服务，而且任何模块都能使用协议中已经存在的服务。这样之前繁杂冗余的业务模块之间的依赖就没有了，还可以提高编译的速度。
+当然，任何模块都可以提供服务，而且任何模块都能使用协议中已经存在的服务。这样之前繁杂冗余的业务模块之间的依赖就没有了，这样就可以把业务module当作application编译运行 ，可以提高编译的速度。
